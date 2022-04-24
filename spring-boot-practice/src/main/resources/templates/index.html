@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>User Form</title>
+</head>
+<body>
+	<h1>Registration Form</h1>
+	<form action="/create" method="post" th:object="${user}">
+		<p>
+			Name: <input type="text" th:field="${user.name}"/>
+		</p>
+		<p>
+			Age: <input type="text" th:field="${user.age}"/>
+		</p>
+		<p>
+			Gender: <br>
+			Male <input type="radio" th:field="${user.gender}" th:value="Male"/>
+			Female <input type="radio" th:field="${user.gender}" th:value="Female"/>
+		</p>
+		<p>
+			IsEmployed: <input type="checkbox" th:field="${user.employed}" th:value="true"/> <!-- is ignored from  isEmployed-->
+		</p>
+		<p>
+			<input type="submit" value="Submit"/>
+			<input type="reset" value="Reset"/>
+		</p>		
+	</form>
+</body>
+</html>

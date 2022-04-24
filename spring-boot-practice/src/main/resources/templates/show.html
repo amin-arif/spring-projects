@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>User Form</title>
+</head>
+<body>
+	<h1>Form submitted</h1>
+	
+	<div>Name: <span th:text="${user.name}"></span></div>
+	<div>Age: <span th:text="${user.age}"></span></div>
+	<div>Gender: <span th:text="${user.gender}"></span></div>
+	<div>Employed: <span th:text="${user.employed}"></span></div>
+</body>
+</html>
