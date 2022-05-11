@@ -10,15 +10,17 @@ import com.arif.springsecuritywithjwt.model.User;
 import com.arif.springsecuritywithjwt.repository.RoleRepository;
 import com.arif.springsecuritywithjwt.repository.UserRepository;
 
-import lombok.RequiredArgsConstructor;
-
 @Service
-@RequiredArgsConstructor
 @Transactional
 public class UserServiceImpl implements UserService {
 	
-	private final UserRepository userRepo = null;
-	private final RoleRepository roleRepo = null;
+	private final UserRepository userRepo;
+	private final RoleRepository roleRepo;
+
+	public UserServiceImpl(UserRepository userRepo, RoleRepository roleRepo) {
+		this.userRepo = userRepo;
+		this.roleRepo = roleRepo;
+	}
 
 	@Override
 	public User saveUser(User user) {
