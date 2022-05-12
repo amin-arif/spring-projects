@@ -2,6 +2,9 @@ package com.arif.springsecuritywithjwt.service;
 
 import java.util.List;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +15,7 @@ import com.arif.springsecuritywithjwt.repository.UserRepository;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, UserDetailsService {
 	
 	private final UserRepository userRepo;
 	private final RoleRepository roleRepo;
@@ -20,6 +23,17 @@ public class UserServiceImpl implements UserService {
 	public UserServiceImpl(UserRepository userRepo, RoleRepository roleRepo) {
 		this.userRepo = userRepo;
 		this.roleRepo = roleRepo;
+	}
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userRepo.findByEmail(username);
+		
+		if(user != null) {
+			log
+		}
+		
+		return null;
 	}
 
 	@Override
