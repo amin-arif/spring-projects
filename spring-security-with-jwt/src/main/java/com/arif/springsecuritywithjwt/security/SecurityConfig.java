@@ -1,6 +1,7 @@
 package com.arif.springsecuritywithjwt.security;
 
 import com.arif.springsecuritywithjwt.filter.CustomAuthenticationFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,14 +15,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	private final UserDetailsService userDetailsService;
-	private final BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder();
+	private final BCryptPasswordEncoder bcryptPasswordEncoder;
 	
-	public SecurityConfig(UserDetailsService userDetailsService) {
-		this.userDetailsService = userDetailsService;
-	}
+//	public SecurityConfig(UserDetailsService userDetailsService) {
+//		this.userDetailsService = userDetailsService;
+//	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
