@@ -33,17 +33,17 @@ public class SpringSecurityWithJwtApplication {
 			userService.saveRole(new Role("ROLE_ADMIN"));
 			userService.saveRole(new Role("ROLE_SUPER_ADMIN"));
 			
-			userService.saveUser(new User("Arif", "arif@gmail.com", "1234", new ArrayList<>()));
-			userService.saveUser(new User("Labib", "labib@gmail.com", "1234", new ArrayList<>()));
-			userService.saveUser(new User("Moin", "moin@gmail.com", "1234", new ArrayList<>()));
-			userService.saveUser(new User("Ashraful", "ashraful@gmail.com", "123456", new ArrayList<>()));
+			userService.saveUser(new User("Arif", "arif", "1234", new ArrayList<>()));
+			userService.saveUser(new User("Labib", "labib", "1234", new ArrayList<>()));
+			userService.saveUser(new User("Moin", "moin", "1234", new ArrayList<>()));
+			userService.saveUser(new User("Ashraful", "ashraful", "123456", new ArrayList<>()));
 			
-			userService.addRoleToUser("arif@gmail.com", "ROLE_USER");
-			userService.addRoleToUser("arif@gmail.com", "ROLE_MANAGER");
-			userService.addRoleToUser("labib@gmail.com", "ROLE_MANAGER");
-			userService.addRoleToUser("moin@gmail.com", "ROLE_ADMIN");
-			userService.addRoleToUser("ashraful@gmail.com", "ROLE_ADMIN");
-			userService.addRoleToUser("ashraful@gmail.com", "ROLE_SUPER_ADMIN");
+			userService.addRoleToUser("arif", "ROLE_USER");
+			userService.addRoleToUser("arif", "ROLE_MANAGER");
+			userService.addRoleToUser("labib", "ROLE_MANAGER");
+			userService.addRoleToUser("moin", "ROLE_ADMIN");
+			userService.addRoleToUser("ashraful", "ROLE_ADMIN");
+			userService.addRoleToUser("ashraful", "ROLE_SUPER_ADMIN");
 		};
 	}
 
