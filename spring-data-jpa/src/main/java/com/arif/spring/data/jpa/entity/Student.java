@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "student", uniqueConstraints = @UniqueConstraint(name = "email_unique", columnNames = "email_address"))
+@Table(name = "student", uniqueConstraints = @UniqueConstraint(name = "email_unique", columnNames = "student_email"))
 public class Student {
 	
 	@Id
@@ -30,7 +30,7 @@ public class Student {
 	@Column(name = "student_name")
 	private String name;
 	
-	@Column(name = "email_address", nullable = false)
+	@Column(name = "student_email", nullable = false)
 	private String email;
 	
 }
