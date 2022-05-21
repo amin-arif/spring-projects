@@ -1,13 +1,6 @@
 package com.arif.spring.data.jpa.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,5 +25,8 @@ public class Student {
 	
 	@Column(name = "student_email", nullable = false)
 	private String email;
+
+	@Embedded
+	private Guardian guardian;
 	
 }
