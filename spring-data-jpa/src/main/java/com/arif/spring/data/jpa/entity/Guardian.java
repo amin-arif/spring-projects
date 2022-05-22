@@ -15,7 +15,7 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@AttributeOverrides({
+@AttributeOverrides({ // if columns already exists in different name, that's why need to override column attributes
         @AttributeOverride(
                 name = "name",
                 column = @Column(name = "guardian_name")

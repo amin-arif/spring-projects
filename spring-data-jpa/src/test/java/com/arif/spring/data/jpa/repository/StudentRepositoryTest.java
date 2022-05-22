@@ -17,8 +17,8 @@ class StudentRepositoryTest {
     @Test
     public void saveStudent() {
         Student student = Student.builder()
-                        .name("ted")
-                                .email("ted@email.com")
+                        .name("Luke")
+                                .email("luke@email.com")
                                         .build();
 
         studentRepository.save(student);
@@ -27,14 +27,14 @@ class StudentRepositoryTest {
     @Test
     public void saveStudentWithGuardianInfo() {
         Guardian guardian = Guardian.builder()
-                        .name("David")
-                                .email("david@gmail.com")
-                                        .phone("01612309090")
+                        .name("Rambo")
+                                .email("rambo@gmail.com")
+                                        .phone("01912309066")
                                                 .build();
 
         Student student = Student.builder()
-                .name("ted")
-                .email("ted@email.com")
+                .name("fed")
+                .email("fed@email.com")
                 .guardian(guardian)
                 .build();
 
@@ -42,10 +42,30 @@ class StudentRepositoryTest {
     }
 
     @Test
-    public void getAllStudent() {
+    public void printAllStudent() {
         List<Student> studentList = studentRepository.findAll();
 
         System.out.println("Student List = " + studentList);
     }
+    
+    @Test
+    public void showStudnetInfo() {
+    	
+    	System.out.println("Student info by Id: " + studentRepository.findById(9L));
+    	
+    	System.out.println("Student info by Name: " + studentRepository.findByName("arif"));
+    	
+    	System.out.println("Student info by Name (Alias): " + studentRepository.findByNameContaining("ed"));
+    	
+    	System.out.println("Student info by Email (Not Null): " + studentRepository.findByGuardianNameNotNull());
+    	
+    	System.out.println("Student info by Guardian Name: " + studentRepository.findByGuardianName("Rambo"));
+    }
 
 }
+
+
+
+
+
+
