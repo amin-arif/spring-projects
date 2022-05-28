@@ -62,6 +62,18 @@ class StudentRepositoryTest {
     	System.out.println("Student info by Guardian Name: " + studentRepository.findByGuardianName("Rambo"));
     }
 
+    @Test
+    public void getStudentByEmailJPQL() {
+        List<Student> students = studentRepository.getStudentsByEmail("luke@email.com");
+
+        System.out.println("students = " + students);
+    }
+
+    @Test
+    public void getGuardianInfoByStudentInfoNativeSQL() {
+        System.out.println("Guardian name: " + studentRepository.getGuardianNameByStudentNameAndEmail("fed", "fed@email.com"));
+        System.out.println("Guardian name (Query named params): " + studentRepository.getGuardianNameByStudentNameAndEmailQueryNameParams("fed", "fed@email.com"));
+    }
 }
 
 
