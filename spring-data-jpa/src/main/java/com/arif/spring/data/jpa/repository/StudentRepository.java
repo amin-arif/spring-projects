@@ -6,9 +6,12 @@ import java.util.List;
 
 import org.hibernate.query.QueryParameter;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import javax.transaction.Transactional;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
@@ -31,5 +34,13 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
 	@Query(value = "select s.guardian_name from student s where s.student_name = :studentName and s.student_email = :studentEmail", nativeQuery = true)
 	String getGuardianNameByStudentNameAndEmailQueryNameParams(@Param("studentName") String name, @Param("studentEmail") String email);
+
+	@Query(
+			value = "update student set student_name = :name where student_email = :email",
+			nativeQuery = true
+	)
+	@Modifying
+	@Transactional
+	void updateNameByEmail(@Param("name") String name, @Param("email") String email);
 
 }

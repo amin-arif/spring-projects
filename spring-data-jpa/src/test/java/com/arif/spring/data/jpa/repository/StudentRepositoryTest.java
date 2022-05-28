@@ -27,14 +27,14 @@ class StudentRepositoryTest {
     @Test
     public void saveStudentWithGuardianInfo() {
         Guardian guardian = Guardian.builder()
-                        .name("Rambo")
-                                .email("rambo@gmail.com")
-                                        .phone("01912309066")
+                        .name("Duke")
+                                .email("duke@gmail.com")
+                                        .phone("01712309066")
                                                 .build();
 
         Student student = Student.builder()
-                .name("fed")
-                .email("fed@email.com")
+                .name("Debian")
+                .email("deb@email.com")
                 .guardian(guardian)
                 .build();
 
@@ -73,6 +73,11 @@ class StudentRepositoryTest {
     public void getGuardianInfoByStudentInfoNativeSQL() {
         System.out.println("Guardian name: " + studentRepository.getGuardianNameByStudentNameAndEmail("fed", "fed@email.com"));
         System.out.println("Guardian name (Query named params): " + studentRepository.getGuardianNameByStudentNameAndEmailQueryNameParams("fed", "fed@email.com"));
+    }
+
+    @Test
+    public void updateNameByEmail() {
+        studentRepository.updateNameByEmail("Deb Iaan", "deb@email.com");
     }
 }
 
