@@ -35,12 +35,12 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 	@Query(value = "select s.guardian_name from student s where s.student_name = :studentName and s.student_email = :studentEmail", nativeQuery = true)
 	String getGuardianNameByStudentNameAndEmailQueryNameParams(@Param("studentName") String name, @Param("studentEmail") String email);
 
+	@Modifying
+	@Transactional
 	@Query(
 			value = "update student set student_name = :name where student_email = :email",
 			nativeQuery = true
 	)
-	@Modifying
-	@Transactional
 	void updateNameByEmail(@Param("name") String name, @Param("email") String email);
 
 }
