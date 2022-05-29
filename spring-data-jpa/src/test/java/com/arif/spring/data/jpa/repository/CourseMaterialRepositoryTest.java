@@ -28,5 +28,10 @@ class CourseMaterialRepositoryTest {
 
         courseMaterialRepository.save(courseMaterial);
     }
+    
+    @Test
+    public void printCourseMaterials() {
+    	System.out.println("Course materials are: " + courseMaterialRepository.findAll());
+    }
 
 }
