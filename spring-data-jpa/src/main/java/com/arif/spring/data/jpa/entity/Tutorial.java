@@ -10,7 +10,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.ToString;
+
 @Entity
+@ToString
 @Table(name = "tutorial")
 public class Tutorial {
 

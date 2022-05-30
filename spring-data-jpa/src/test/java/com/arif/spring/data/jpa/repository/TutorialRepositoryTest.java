@@ -1,8 +1,5 @@
 package com.arif.spring.data.jpa.repository;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -49,8 +46,8 @@ public class TutorialRepositoryTest {
 		List<Tutorial> tutorials = tutorialRepository.findByTitleLike("Hello");		
 		System.out.println("Case sensitive tutorials: " + tutorials);
 		
-		List<Tutorial> tutorials2 = tutorialRepository.findByTitleLikeCaseInsensitive("");		
-		System.out.println("Case sensitive tutorials: " + tutorials2);
+		List<Tutorial> tutorials2 = tutorialRepository.findByTitleLikeCaseInsensitive("test");		
+		System.out.println("Case Insensitive tutorials : " + tutorials2);
 	}
 }
 
