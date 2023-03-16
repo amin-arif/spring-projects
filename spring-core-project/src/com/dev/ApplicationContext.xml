@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans.xsd 
+  http://www.springframework.org/schema/context/ 
+  http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="employee" class="com.dev.Employee"></bean>
+    
+    <bean id="address" class="com.dev.Address">
+    	<constructor-arg value="Niketon"></constructor-arg>
+    	<constructor-arg value="Dhaka"></constructor-arg>
+    	<constructor-arg value="Bangladesh"></constructor-arg>
+    </bean>
+    
+    <bean id="course1" class="com.dev.Course">
+    	<constructor-arg value="001"></constructor-arg>
+    	<constructor-arg value="Math"></constructor-arg>
+    </bean>
+    <bean id="course2" class="com.dev.Course">
+    	<constructor-arg value="002"></constructor-arg>
+    	<constructor-arg value="English"></constructor-arg>
+    	<!-- Setter injection override the constructor injection -->
+    	<property name="name">
+    		<value>English (from setter injection)</value>
+    	</property>
+    </bean>
+    
+    <bean id="student" class="com.dev.Student">
+    	<constructor-arg value="1" type="int"></constructor-arg>
+    	<constructor-arg value="Lobby"></constructor-arg>
+    	<constructor-arg>
+    		<ref bean="address"></ref>
+    	</constructor-arg>
+  	    <constructor-arg>
+    		<list>
+    			<value>Math teacher: Malan</value>
+    			<value>English teacher: Bolt</value>
+    		</list>
+    	</constructor-arg>
+    	<constructor-arg>
+    		<list>
+    			<ref bean="course1"></ref>
+    			<ref bean="course2"></ref>
+    		</list>
+    	</constructor-arg>
+    </bean>
+
+</beans>
