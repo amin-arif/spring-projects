@@ -27,6 +27,11 @@ public class TestApp {
 		//---------------- Use Constructor Injection ----------------
 		Student student = (Student) context.getBean("student");
 		student.show();
+		
+		// Autowire use in configuration
+		Teacher teacher = (Teacher) context.getBean("teacher");
+		System.out.println(teacher);
+		
 	}
 
 }

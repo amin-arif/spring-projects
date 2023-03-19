@@ -48,5 +48,13 @@
     		</list>
     	</constructor-arg>
     </bean>
+    
+    <!-- Autowire block -->
+    <!-- autowire='byName' ==> search by object name from Bean (The class object 1 or more than 1 will be present in the Bean). -->
+    <!-- autowire='byType' ==> search by object type from Bean (only 1 class object will be present in the Bean). -->
+    <!-- autowire='constructor' ==> set through constructor from Bean (only 1 class object will be present in the Bean). -->
+    
+    <bean id="teacher" class="com.dev.Teacher" autowire="byName">
+    </bean>
 
 </beans>
