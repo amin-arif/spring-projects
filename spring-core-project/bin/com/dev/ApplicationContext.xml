@@ -56,5 +56,7 @@
     
     <bean id="teacher" class="com.dev.Teacher" autowire="byName">
     </bean>
+    
+    <bean id="beanTest" class="com.dev.BeanTest" scope="singleton" init-method="start" destroy-method="finish"></bean>
 
 </beans>
